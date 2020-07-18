@@ -3,11 +3,13 @@ package com.example.myfirstapp;
 import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 
 //import android.support.v4.app.ActivityCompat;
@@ -21,6 +23,7 @@ public class MainActivity extends Activity {
     // GPSTracker class
     GPSTracker gps;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +35,6 @@ public class MainActivity extends Activity {
 
                 ActivityCompat.requestPermissions(this, new String[]{mPermission},
                         REQUEST_CODE_PERMISSION);
-
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,3 +70,4 @@ public class MainActivity extends Activity {
         });
     }
 }
+
